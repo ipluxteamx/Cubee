@@ -1,0 +1,78 @@
+// START OF THE OS.CPC FILE
+
+sys/ /os:CUBEE
+exe/ & %CPC.REP.KRNL%/CONFIG/ENV_GUI/env_gui.cpc
+
+// Set the language and CPC Level.
+ccp/ /lang = EN
+ccp/ /set.level = 4
+
+// Variables.
+set/ OS_NAME = Cubee
+set/ OS_Author = Yann.L
+set/ OS_Company = TeamX
+
+set/ OS_Created = 20-06-2023
+set/ OS_Updated = 20-06-2023
+set/ OS_Version = 0.0.1
+
+set/ OS_Codename = Paris
+set/ HOST_OS = OS/CUBEE
+
+set/ color_black = 0
+set/ color_blue = 1
+set/ color_green = 2
+set/ color_cyan = 3
+set/ color_red = 4
+set/ color_purple = 5
+set/ color_brown = 6
+
+set/ color_l_grey = 7
+set/ color_d_grey = 8
+
+set/ color_l_blue = 9
+set/ color_l_green = 10
+set/ color_l_cyan = 11
+set/ color_l_red = 12
+set/ color_l_purple = 13
+set/ color_yellow = 14
+set/ color_white = 15
+
+set/ shell_version = 0.1
+
+// Console:
+gui/ /console
+
+// Clear the screen and set the OS to Cubee.
+cls/
+
+// Startup.
+txt/ Cubee - Version %OS_Version% - %OS_Codename%.
+txt/ Copyright (C) 2023, %OS_Author%. All rights reserved.
+txt/ This operating system is licensed under the GNU GPL v3.0.
+
+txt/
+txt/ Booting Cubee %OS_Version%...
+
+//exe/ & %HOST_OS%/asc/asc.cpc
+
+// Checking if the shell is there.
+set/ Shell_Check = /F:CPC.FILE_EXIST(%HOST_OS%/shell/shell.cpc)
+if/ "%Shell_Check%" == "1" then: goto/ _start_sh
+
+// If not, shutdown.
+txt/ [Critical Error] => ASC is missing, shutting down in 2 seconds...
+ccp/ /pause 2000
+sys/ /shutdown
+
+// Create processes.
+@#PID_ASC sys/ /process _SHELL_
+
+// Start the ASC Shell.
+:_start_sh:
+cmd/ /pid:%PID_ASC% exe/ &+ %HOST_OS%/asc/asc.cpc
+
+//refresh/ /all
+//sys/ /os:CUBEE
+
+// ENDING OF THE OS.CPC FILE

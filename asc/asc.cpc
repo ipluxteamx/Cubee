@@ -1,0 +1,50 @@
+// START OF THE ASC.CPC FILE
+
+// =============================================
+// [                  * ASC *                  ]
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// [             A Shell for Cubee             ]
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// [                Version 0.1                ]
+// =============================================
+// [          By iplux / Yann.L, 2023.         ]
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// [        Last updated on: 20/06/2023.       ]
+// =============================================
+
+cls/
+colorb/ %color_l_grey%
+colorf/ %color_blue%
+
+txt/ =============================================
+txt/ [                  * ASC *                  ]
+txt/ =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+txt/ [             A Shell for Cubee             ]
+txt/ =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+txt/ [                Version %shell_version%                ]
+txt/ =============================================
+txt/
+
+colorf/ %color_green%
+
+txt/ =============================================
+txt/ Hello World! ASC and Cubee has been initialized.
+txt/ Type "help" to get started on using ASC.
+txt/ =============================================
+txt/
+
+colorf/ %color_white%
+goto/ _shell
+
+// =============================================
+function/ command_check(cmd)
+    txt/ %cmd%
+end/ function
+
+:_shell:
+txt/ [%CPC.SYS.NET.ID%@%CPC.DIR%]=> /#R
+set/ /Q CMD
+/f: command_check(%CMD%)
+goto/ _shell
+
+// END OF THE ASC.CPC FILE
