@@ -38,7 +38,7 @@ set/ color_l_purple = 13
 set/ color_yellow = 14
 set/ color_white = 15
 
-set/ shell_version = 0.1
+set/ shell_version = 0.1.1
 
 // Console:
 gui/ /console

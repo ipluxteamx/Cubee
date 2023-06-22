@@ -1,6 +1,8 @@
 // [FR] Ce fichier va permettre d'afficher le boot screen de l'OS
 // [EN] This file will able to display OS boot screen
 
+// THE VERSION INDICATED IN THE BOOT SCREEN IS A MOCKUP
+
 // img_0.png => img_3.png
 CCP/ /SET.LEVEL = 5
 
